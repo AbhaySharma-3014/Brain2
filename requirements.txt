@@ -1,6 +1,6 @@
 streamlit
 tensorflow
-RUN apt-get update
-RUN apt-get install ffmpeg libsm6 libxext6  -y
+apt-get update
+apt-get install ffmpeg libsm6 libxext6  -y
 opencv-python==4.6.0.66
 numpy
