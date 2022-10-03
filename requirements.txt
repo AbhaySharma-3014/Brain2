@@ -1,6 +1,5 @@
 pip==22.2.2
 streamlit
 tensorflow
-cv2-python
 opencv-python
 numpy
