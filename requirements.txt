@@ -1,6 +1,6 @@
-pip==22.2.2
 streamlit
 tensorflow
-panda
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 opencv-python==4.6.0.66
 numpy
