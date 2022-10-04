@@ -35,14 +35,14 @@ if uploaded_file is not None:
 
     # Threshold the image, then perform a series of erosions +
     # dilations to remove any small regions of noise
-    thresh = cv2.threshold(gray, 45, 255, cv.THRESH_BINARY)[1]
+    thresh = cv2.threshold(gray, 45, 255, cv2.THRESH_BINARY)[1]
     thresh = cv2.erode(thresh, None, iterations=2)
     thresh = cv2.dilate(thresh, None, iterations=2)
 
     # Find contours in thresholded image, then grab the largest one
-    cnts = cv2.findContours(thresh.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
+    cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cnts = imutils.grab_contours(cnts)
-    c = max(cnts, key=cv.contourArea)
+    c = max(cnts, key=cv2.contourArea)
 
     # Find the extreme points
     extLeft = tuple(c[c[:, :, 0].argmin()][0])
@@ -53,7 +53,7 @@ if uploaded_file is not None:
     # crop new image out of the original image using the four extreme points (left, right, top, bottom)
     new_image = image[extTop[1]:extBot[1], extLeft[0]:extRight[0]]
 
-    image = cv2.resize(new_image, dsize=(240, 240), interpolation=cv.INTER_CUBIC)
+    image = cv2.resize(new_image, dsize=(240, 240), interpolation=cv2.INTER_CUBIC)
     image = image / 255.
 
     image = image.reshape((1, 240, 240, 3))
