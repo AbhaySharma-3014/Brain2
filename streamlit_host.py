@@ -106,7 +106,7 @@ if uploaded_file is not None:
 
             # Finding sure foreground area
             # curImg = image.img_to_array(curImg, dtype='uint8')
-            dist_transform = cv2.distanceTransform(curImg, cv.DIST_L2, 5)
+            dist_transform = cv2.distanceTransform(curImg, cv2.DIST_L2, 5)
             [ret, sure_fg] = cv2.threshold(dist_transform, 0.7 * dist_transform.max(), 255, 0)
 
             # Find unknown region
